@@ -1,0 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.vatan-logo {
+  height: 65px;
+  width: 130px;
+}
+
+.header-div {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  background-color: #0153a6;
+  width: 80%;
+  position: relative;
+  left: 12%;
+}
+
+.nav {
+  height: 10vh;
+  font-family: "Roboto";
+  position: absolute;
+  top: 0;
+  color: white;
+}
+
+.nav i {
+  color: white;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-li {
+  list-style: none;
+  padding: 0 50px;
+}
+
+.icon {
+  color: white;
+}
+
+.nav-input {
+  background-color: #4383cb;
+  min-width: 50px;
+  opacity: 0.6;
+  width: 100px;
+  border: none;
+  color: white;
+  height: 50px;
+  width: 190px;
+  border-radius: 3px;
+}
+
+.icon {
+  color: black;
+}
+
+.one-cikan-product {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+.one-cikan-first-line {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: row;
+}
+
+.product-div {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-div img {
+  height: 100%;
+  width: 100%;
+}
+
+.one-cikan-model {
+  color: gray;
+  font-size: 13px;
+}
+
+.one-cikan-span {
+  font-size: 13px;
+  color: #f79109;
+}
+
+.one-cikan-count {
+  color: gray;
+}
+
+.one-cikan-text {
+  font-size: 15px;
+}
+
+.one-cikan-tutar {
+  color: #1862b7;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.fa-lira-sign {
+  font-weight: normal;
+}
+
+.one-cikan-product > p {
+  padding: 15px 0;
+}
+
+.one-cikan-urunler-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.one-cikan-link {
+  text-decoration: none;
+  color: #0153a6;
+  font-family: "Arial";
+}
+
+.one-cikan-h {
+  font-size: 20px;
+  font-family: "Arial";
+}
+
+.one-cikan-urunler-div {
+  margin: 0 300px;
+  font-family: "Arial";
+}
+
+.swiper-container {
+  width: 100%;
+  height: 60%;
+}
+
+.swiper-button-next {
+  color: white;
+  background-color: black;
+}
+
+.swiper-pagination {
+  color: black;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.trial {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.one-cikan-urunler {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  margin-left: 150px;
+}
+
+.ul-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 20px 20px;
+}
+
+.product-container:hover {
+  border: 1px solid #0153a6;
+}
+
+.product-container {
+  border: 1px solid #b1b1b1;
+  min-width: 200px;
+  transition: all 0.1s ease;
+}
+
+.btn-kargo {
+  background-color: #eeeeee;
+  color: #b1b1b1;
+  padding: 3px 6px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.star-span {
+  font-size: 13px;
+  color: #f79109;
+}
+
+.u-comment,
+.u-code {
+  font-size: 13px;
+  color: #b1b1b1;
+}
+
+.li-code {
+  padding-top: 30px;
+}
+
+.li-title {
+  font-size: 16px;
+  line-height: 1.6;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.li-price {
+  font-size: 17px;
+  color: #0153a6;
+}
+
+.u-price {
+  font-weight: 600;
+}
+
+.one-cikan-urunler-upper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.one-cikan-h3 {
+  color: #41494f;
+  line-height: 1.6;
+  font-size: 24px;
+}
+
+.one-cikan-a {
+  color: #1564c0;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: "Arial";
+  font-size: 16px;
+}
