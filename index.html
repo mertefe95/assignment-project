@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="style.css" rel="stylesheet" />
+  <title>Assignment Project</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="style.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com" /> 
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
 </head>
 <body>
  
 <header class="header-div">
-
-
 <nav class="nav">
 <ul class="nav-ul">
   <li class="nav-li"><img src="/logovatan.png" class="vatan-logo" /></li>
@@ -24,31 +24,23 @@
   
   <li class="nav-li"><span class="span-uyelik">Üyelik</span><i class="fas fa-user-circle icon"></i></li>
   <li class="nav-li"><span class="span-sepetim">Sepetim</span><i class="fas fa-shopping-cart icon"></i></li>
-
 </ul>
 </nav>
 
 
-<div class="swiper-container">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      ...
-  </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
-
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next" style="color: white; background-color: black; opacity: 0.8; height: 30px; padding: 40px 20px;"></div>
-
+<div class="swiper-container swiper-one">
   
-  <i class="fas fa-user-circle"></i>
-  <!-- If we need scrollbar -->
+  <div class="swiper-wrapper">
+      <div class="swiper-slide one-cikan-slide"  ><img src="/320x520.png" /></div>
+      <div class="swiper-slide one-cikan-slide" ><img src="/320x520.png" /></div>
+      <div class="swiper-slide one-cikan-slide" ><img src="/320x520.png" /></div>
+  </div>
+
+  <div class="swiper-pagination"></div>
   <div class="swiper-scrollbar"></div>
+
+  <div class="swiper-button-prev" style="visibility: hidden;"><i class="fas fa-play" style="visibility: visible; color: white; background-color: black; padding: 30px 15px; opacity: 0.7; font-size: 8px; rotate: 180deg; border-radius: 2px; margin-left: 50px;" ></i></div>
+  <div class="swiper-button-next" style="visibility: hidden;"><i class="fas fa-play" style="visibility: visible; color: white; background-color: black; padding: 30px 15px; opacity: 0.7; font-size: 8px; border-radius: 2px;" ></i></div>
 </div>
 </header>
 
@@ -59,14 +51,29 @@
   <h3 class="one-cikan-h3">Öne çıkan ürünler</h3>
   <a class="one-cikan-a" href="#">TÜM ÖNE ÇIKANLAR <i class="fas fa-long-arrow-alt-right"></i></a>
 </div>
+
 <div id="data-first" class="one-cikan-urunler">
 
 </div>
 
 
-<div id="data" class="trial">
 
+
+<div class="one-cikan-urunler-upper">
+  <h3 class="one-cikan-h3">Çok satanlar</h3>
+  <a class="one-cikan-a" href="#">TÜM ÇOK ÇIKANLAR <i class="fas fa-long-arrow-alt-right"></i></a>
 </div>
+
+
+
+<div class="swiper-container swiper-two" >
+  <div id="cok-satanlar-id" class="swiper-wrapper">
+  </div>
+  <div class="swiper-pagination-new"></div>
+  <div class="swiper-button-prev-new" style="visibility: hidden;"><i class="fas fa-play" style="visibility: visible; color: white; background-color: black; padding: 30px 15px; opacity: 0.7; font-size: 8px; rotate: 180deg; border-radius: 2px;" ></i></div>
+  <div class="swiper-button-next-new" style="visibility: hidden;"><i class="fas fa-play" style="visibility: visible; color: white; background-color: black; padding: 30px 15px; opacity: 0.7; font-size: 8px; border-radius: 2px;" ></i></div>
+</div>
+
 
   
     </div>
@@ -74,81 +81,11 @@
   </div>
 </div>
 
-
 </main>
-
-
-
-
-<a href="https://placeholder.com"><img src="https://via.placeholder.com/150"/></a>
-
-<!-- Initialize Swiper -->
-<script>
-  fetch("./data-json/relatedProducts.json").then(
-    res =>{ 
-      res.json().then(
-        data=>{
-          console.log(data);
-          if(data.length > 0) {
-            var temp = "";
-
-            // start for loop
-
-            data.forEach((u) => {
-              temp += "<div class='product-container'>";
-              temp += "<ul class='ul-item'>";
-              temp += `<li class="li-item li-img"><img src="${u.img}" class="u-img" /></li>`; 
-              temp += `<li class="li-item li-star-comment"><span class="star-span"><i class="fas fa-star"></i> ${u.rating}</span> <span class="u-comment">(${u.comment} Yorum)</span></li>`;
-              temp += `<li class="li-item li-code"><p class="u-code">${u.code}</p></li>`;
-              temp += `<li class="li-item li-title"><p class="u-title">${u.title}</p></li>`; 
-              temp += `<li class="li-item li-price"><i class="fas fa-lira-sign"></i><span class="u-price"> ${u.price}</span></li>`;
-              temp += `<li class="li-item li-kargo"><span class="span-kargo">BUGÜN KARGODA</span></li>` 
-              temp += "</ul>";
-              temp += "</div>";
-            })
-            // close for loop
-
-            document.getElementById("data-first").innerHTML = temp;
-          }
-        }
-      )
-    }
-  )
-  fetch("./data-json/bestSeller.json").then(
-    res =>{ 
-      res.json().then(
-        data=>{
-          console.log(data);
-          if(data.length > 0) {
-            var temp = "";
-
-            // start for loop
-
-            data.forEach((u) => {
-              temp += "<div class='product-container'>";
-              temp += "<ul class='ul-item'>";
-              temp += `<li class="li-item li-img"><img src="${u.img}" class="u-img" /></li>`; 
-              temp += `<li class="li-item li-star-comment"><span class="star-span"><i class="fas fa-star"></i> ${u.rating}</span> <span class="u-comment">(${u.comment} Yorum)</span></li>`;
-              temp += `<li class="li-item li-code"><p class="u-code">${u.code}</p></li>`;
-              temp += `<li class="li-item li-title"><p class="u-title">${u.title}</p></li>`; 
-              temp += `<li class="li-item li-price"><i class="fas fa-lira-sign"></i><span class="u-price"> ${u.price}</span></li>`;
-              temp += `<li class="li-item li-kargo"><span class="span-kargo">BUGÜN KARGODA</span></li>` 
-              temp += "</ul>";
-              temp += "</div>";
-            })
-            // close for loop
-
-            document.getElementById("data").innerHTML = temp;
-          }
-        }
-      )
-    }
-  )
-
-</script>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="app.js"></script>
 <script src="/main.js"></script>
+
+
 <script src="https://kit.fontawesome.com/80bd54fff9.js" crossorigin="anonymous"></script>
 </body>
 </html>
