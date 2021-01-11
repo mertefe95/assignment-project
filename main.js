@@ -72,12 +72,23 @@ fetch("./data-json/relatedProducts.json").then(
   }
 )
 
+const submitButton = document.querySelector('.sepet-btn');
+
+
+
 
 fetch("./data-json/bestSeller.json").then(
   res =>{ 
     res.json().then(
       data=>{
         
+        var userProduct = {
+          img: "45",
+          code: "56",
+        };
+
+        localStorage.setItem('newUserNew', JSON.stringify(userProduct));
+  
         if(data.length > 0) {
           var temp = "";
 
@@ -106,3 +117,20 @@ fetch("./data-json/bestSeller.json").then(
 
 
 
+const sepetimLi = document.querySelector('.span-sepetim');
+
+
+
+
+const sepet = document.getElementById("sepet-li");
+const kek = document.querySelector(".kek-div");
+
+sepet.addEventListener("mouseenter", function( event ) {
+
+  kek.style.visibility = "visible";
+
+})
+
+sepet.addEventListener("mouseleave", function( event ) {
+  kek.style.visibility = "hidden";
+})

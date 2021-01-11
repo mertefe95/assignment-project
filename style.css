@@ -42,7 +42,16 @@
   list-style: none;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1420px) {
+  .header-div {
+    position: relative;
+    left: 12%;
+  }
+
+  .one-cikan-urunler {
+    margin-left: 40px !important;
+  }
+
   .nav-ul {
     font-size: 14px;
   }
@@ -53,8 +62,39 @@
   }
 }
 
-.icon {
-  color: white;
+@media screen and (max-width: 1307px) {
+  .one-cikan-urunler {
+    grid-template-columns: 200px 200px 200px 200px !important;
+    margin-left: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1077px) {
+  .one-cikan-urunler {
+    grid-template-columns: 200px 200px 200px !important;
+    margin-left: 150px !important;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .one-cikan-urunler {
+    grid-template-columns: 200px 200px !important;
+    margin-left: 190px !important;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .one-cikan-urunler {
+    grid-template-columns: 180px !important;
+    margin-left: 120px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .one-cikan-urunler {
+    grid-template-columns: 180px !important;
+    margin-left: 80px !important;
+  }
 }
 
 .nav-input {
@@ -242,6 +282,7 @@
   border: 1px solid #2196f3;
   margin: 10px 10px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .sepet-btn:hover {
@@ -270,4 +311,18 @@
   border: 1px solid #0153a6;
   height: 100%;
   padding: 10px 15px;
+}
+
+#sepet-li {
+  text-align: center;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+#sepet-li:hover .kek-div {
+  visibility: visible;
+}
+
+.sepet-wrapper {
+  text-align: center;
 }
