@@ -40,8 +40,6 @@ var mySwiper = new Swiper('.swiper-two', {
 })
 
 
-mySwiper.update();
-
 fetch("./data-json/relatedProducts.json").then(
   res =>{ 
     res.json().then(
@@ -59,13 +57,14 @@ fetch("./data-json/relatedProducts.json").then(
             temp += `<li class="li-item li-title"><p class="u-title">${u.title}</p></li>`; 
             temp += `<li class="li-item li-price"><i class="fas fa-lira-sign"></i><span class="u-price"> ${u.price}</span></li>`;
             temp += `<li class="li-item li-kargo"><span class="span-kargo">BUGÜN KARGODA</span></li>`;
-            temp += `<li class="li-item li-button-blue"><button type='submit' class='sepet-btn'><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
+            temp += `<li class="li-item li-button-blue"><button type="submit" onclick="localStorage.setItem('${u.code}', '${u.title}')" id="blue-button" class="sepet-btn"><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
             temp += "</ul>";
             temp += "</div>";
           })
           // close for loop
 
           document.getElementById("data-first").innerHTML = temp;
+
         }
       }
     )
@@ -134,3 +133,5 @@ sepet.addEventListener("mouseenter", function( event ) {
 sepet.addEventListener("mouseleave", function( event ) {
   kek.style.visibility = "hidden";
 })
+
+
