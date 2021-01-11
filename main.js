@@ -14,30 +14,7 @@ var swiper = new Swiper('.swiper-container', {
   },
 });
 
-var mySwiper = new Swiper('.swiper-two', {
-  // Optional parameters
-  slidesPerView: 3,
-  spaceBetween: 30,
-  slidesPerGroup: 1,
-  loop: true,
-  loopFillGroupWithBlank: true,
 
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination-new',
-    clickable: true
-  },
-  
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next-new',
-    prevEl: '.swiper-button-prev-new',
-  },
-
- 
-})
 
 
 fetch("./data-json/relatedProducts.json").then(
@@ -48,7 +25,7 @@ fetch("./data-json/relatedProducts.json").then(
         if(data.length > 0) {
           var temp = "";
 
-          data.forEach((u) => {
+          data.forEach((u, idx) => {
             temp += "<div class='product-container'>";
             temp += "<ul class='ul-item'>";
             temp += `<li class="li-item li-img"><img src="${u.img}" class="u-img" /></li>`; 
@@ -57,19 +34,37 @@ fetch("./data-json/relatedProducts.json").then(
             temp += `<li class="li-item li-title"><p class="u-title">${u.title}</p></li>`; 
             temp += `<li class="li-item li-price"><i class="fas fa-lira-sign"></i><span class="u-price"> ${u.price}</span></li>`;
             temp += `<li class="li-item li-kargo"><span class="span-kargo">BUGÜN KARGODA</span></li>`;
-            temp += `<li class="li-item li-button-blue"><button type="submit" onclick="localStorage.setItem('${u.code}', '${u.title}')" id="blue-button" class="sepet-btn"><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
+            temp += `<li class="li-item li-button-blue"><button type="submit" id="blue-button-${idx}" class="sepet-btn"><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
             temp += "</ul>";
             temp += "</div>";
+
+            
           })
           // close for loop
 
           document.getElementById("data-first").innerHTML = temp;
 
+          data.forEach((u,idx) => {
+            document.querySelector(`#blue-button-${idx}`).addEventListener('click',function(){
+              var userProduct = {
+                    title: u.title,
+                    price: u.price,
+                    img: u.img
+                  };
+                  localStorage.setItem(u.code, JSON.stringify(userProduct));
+            })
+          })
+          
+          
         }
       }
     )
   }
 )
+
+
+
+
 
 const submitButton = document.querySelector('.sepet-btn');
 
@@ -81,19 +76,11 @@ fetch("./data-json/bestSeller.json").then(
     res.json().then(
       data=>{
         
-        var userProduct = {
-          img: "45",
-          code: "56",
-        };
-
-        localStorage.setItem('newUserNew', JSON.stringify(userProduct));
-  
         if(data.length > 0) {
           var temp = "";
 
-
-          data.forEach((u) => {
-            temp += "<div class='swiper-slide'>";
+          data.forEach((u, idx) => {
+            temp += "<div class='product-container'>";
             temp += "<ul class='ul-item'>";
             temp += `<li class="li-item li-img"><img src="${u.img}" class="u-img" /></li>`; 
             temp += `<li class="li-item li-star-comment"><span class="star-span"><i class="fas fa-star"></i> ${u.rating}</span> <span class="u-comment">(${u.comment} Yorum)</span></li>`;
@@ -101,18 +88,34 @@ fetch("./data-json/bestSeller.json").then(
             temp += `<li class="li-item li-title"><p class="u-title">${u.title}</p></li>`; 
             temp += `<li class="li-item li-price"><i class="fas fa-lira-sign"></i><span class="u-price"> ${u.price}</span></li>`;
             temp += `<li class="li-item li-kargo"><span class="span-kargo">BUGÜN KARGODA</span></li>`;
-            temp += `<li class="li-item li-button-blue"><button type='submit' class='sepet-btn'><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
+            temp += `<li class="li-item li-button-blue"><button type="submit" id="blue-button-${idx}" class="sepet-btn"><i class="fas fa-exchange-alt"></i><span class="span-sepet">SEPETE EKLE</span> </button></li>` 
             temp += "</ul>";
             temp += "</div>";
-          })
-        
 
-          document.getElementById("cok-satanlar-id").innerHTML = temp;
+            
+          })
+          // close for loop
+
+          document.getElementById("data-second").innerHTML = temp;
+
+          data.forEach((u,idx) => {
+            document.querySelector(`#blue-button-${idx}`).addEventListener('click',function(){
+              var userProduct = {
+                    title: u.title,
+                    price: u.price,
+                    img: u.img
+                  };
+                  localStorage.setItem(u.code, JSON.stringify(userProduct));
+            })
+          })
+          
+          
         }
       }
     )
   }
 )
+  
 
 
 
